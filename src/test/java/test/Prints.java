@@ -7,6 +7,7 @@ public class Prints {
 		
 		System.out.println("first print"); 
 		System.out.println("second print"); 
+System.out.println("third print"); 
 
 	}
 
