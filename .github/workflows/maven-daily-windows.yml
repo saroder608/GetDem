@@ -1,0 +1,23 @@
+name: Daily Maven Test Run on Windows
+
+on:
+  schedule:
+    - cron: '30 8 * * *'  # Runs every day at 2:00 PM IST (8:30 UTC)
+  workflow_dispatch:        # Allows manual trigger from the UI
+
+jobs:
+  test:
+    runs-on: windows-latest  # Use Windows environment
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'  # Change this if you're using Java 11 or 21
+
+      - name: Run Maven Build
+        run: mvn clean install
